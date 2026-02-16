@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opzzy's Kitchen & crafts · Catering & decoration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0B1E26;
+            --primary-medium: #1A2F38;
+            --accent-teal: #0F4C5C;
+            --accent-gold: #C6A43F;
+            --text-light: #F5F5F5;
+            --text-gray: #B0B0B0;
+            --soft-rose: #d68b7c;    /* warm accent for catering */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary-medium);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background: linear-gradient(145deg, var(--primary-dark) 0%, #1d2f38 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent-gold);
+            text-shadow: 0 2px 8px rgba(198, 164, 63, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-teal);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: #126f82;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 8px 22px;
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border-color: var(--accent-gold);
+        }
+
+        /* OPZZY single card (catering focus) */
+        .creators-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .creator-card {
+            flex: 0 1 auto;
+            width: 100%;
+            max-width: 560px;        /* bigger, more prominent for single business */
+            background: var(--primary-medium);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 40px -12px rgba(0, 0, 0, 0.7);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            border: 1px solid #3e4f59;
+            margin: 0 auto;
+        }
+
+        .creator-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 36px 48px -10px black;
+            border-color: var(--accent-gold);
+        }
+
+        .creator-image {
+            height: 300px;
+            background: linear-gradient(145deg, #bd7f5a, #5e3c2b);  /* warm food/beads vibe */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #c29a6b, #3f2c1e);
+            color: #ffeec2;
+            font-weight: 700;
+            font-size: 2rem;
+            text-shadow: 0 4px 14px black;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .image-placeholder small {
+            font-size: 1.1rem;
+            background: rgba(0,0,0,0.4);
+            padding: 5px 18px;
+            border-radius: 60px;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        .creator-info {
+            padding: 30px 30px 36px;
+            text-align: center;
+        }
+
+        .creator-badge {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .creator-info h3 {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .creator-info h3 span {
+            font-size: 1.8rem;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .creator-title {
+            color: #dddddd;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-bottom: 1px dashed #3f5e6b;
+            padding-bottom: 16px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0 28px;
+            justify-content: center;
+        }
+
+        .service-tags span {
+            background: var(--primary-dark);
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #f0e6d2;
+            border: 1px solid #3a636e;
+            transition: 0.15s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        .service-tags span:hover {
+            background: var(--accent-teal);
+            color: white;
+            border-color: var(--accent-gold);
+            transform: scale(1.02);
+        }
+
+        .price-tag {
+            background: rgba(198, 164, 63, 0.18);
+            border: 1px solid var(--accent-gold);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 60px;
+            font-weight: 600;
+            margin: 10px 0 20px;
+            color: #f5d889;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--primary-medium);
+            text-align: center;
+            border-top: 1px solid #235b68;
+            border-bottom: 1px solid #235b68;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #d4d4d4;
+        }
+
+        /* Contact & footer */
+        #contact {
+            background: #0d2c35;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-note {
+            color: #bbb;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: #1a2a30;
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-gray);
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .nav-menu {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .creator-info h3 {
+                font-size: 2.4rem;
+            }
+            .service-tags span {
+                padding: 8px 18px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation (subtle, same brand) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Opzzy<span> NG</span></h1>   <!-- simplified, keeps sister's name -->
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO section – now only Opzzy's card (catering + beads + cake) -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Opzzy's <span>catering & crafts</span></h1>
+                <p>Authentic Nigerian flavours · handcrafted beads · celebration cakes</p>
+                <a href="#services" class="btn btn-primary">Browse her services</a>
+            </div>
+            
+            <!-- SINGLE CREATOR CARD - OPZZY (your sister) -->
+            <div id="services" class="creators-showcase">
+                <div class="creator-card">
+                    <div class="creator-image">
+                        <div class="image-placeholder">
+                            🍲👑 opzzy
+                            <small>caterer · beadmaker · cake artist</small>
+                        </div>
+                    </div>
+                    <div class="creator-info">
+                        <span class="creator-badge">MULTI‑CRAFT CREATOR</span>
+                        <h3>Opzzy <span>✦</span></h3>
+                        <p class="creator-title">Your sister's all-in-one creative kitchen</p>
+                        
+                        <!-- main three services: catering, beads, cake decoration -->
+                        <div class="service-tags">
+                            <span>🍛 Catering</span>
+                            <span>📿 Beads</span>
+                            <span>🎂 Cake decoration</span>
+                        </div>
+                        
+                        <!-- extra description of each (optional, but clear) -->
+                        <div style="color: #c0c0c0; margin: 12px 0 18px; font-size: 1.05rem; background: #1a333d; padding: 16px; border-radius: 50px;">
+                            ⚡ event catering · traditional beads · birthday & wedding cakes
+                        </div>
+                        
+                        <div class="price-tag"> inquire for pricing →</div>
+                        
+                        <!-- single action link (could be whatsapp/contact) -->
+                        <a href="#contact" class="btn btn-outline" style="margin-top: 4px;">✨ order catering / beads / cake</a>
+                    </div>
+                </div>
+            </div>
+            <!-- (only one card, representing your sister’s business) -->
+        </div>
+    </section>
+
+    <!-- About / story section (personalised for Opzzy) -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Meet Opzzy — caterer & creative</h2>
+            <p>That's your sister! She runs a warm, home‑style catering service, hand‑makes beautiful Nigerian beads, and decorates stunning cakes for every occasion. Every dish tells a story, every bead is crafted with patience, and every cake is a piece of art. Support her journey! ❤️</p>
+        </div>
+    </section>
+
+    <!-- Contact section – direct way to reach Opzzy -->
+    <section id="contact">
+        <div class="container">
+            <h2>Let's bring flavour & beauty to your event</h2>
+            <p class="contact-note">Catering · beads · cake — all from one talented creator.</p>
+            <a href="#" class="btn btn-primary" style="background: var(--accent-gold); color: #0B1E26; font-weight: 700; font-size: 1.3rem; padding: 14px 40px;">📞 contact Opzzy</a>
+            <p style="margin-top: 30px; color: #a0bcc8;">📍 based in Nigeria · orders welcome</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Opzzy's Catering & Beads — proudly your sister's brand. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === "#") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // simple active nav highlight (optional)
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id], div[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            let current = '';
+            const scrollPos = window.scrollY + 100;
+            sections.forEach(section => {
+                if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.style.color = ''; 
+                link.style.borderBottomColor = 'transparent';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--accent-gold)';
+                    link.style.borderBottomColor = 'var(--accent-gold)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
