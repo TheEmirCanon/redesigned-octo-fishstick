@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyin's Taste - Cakes & Cupcakes</title>
+    <style>
+        /* STEP 4: CSS STYLES - Copy these inside style tags */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background-color: #8B4513;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        
+        nav a:hover {
+            background-color: #CD5C5C;
+            border-radius: 5px;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Section */
+        .page-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/cake-header.jpg');
+            background-size: cover;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        /* Cake Categories */
+        .cake-category {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cake-category h2 {
+            color: #8B4513;
+            font-size: 32px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #CD5C5C;
+            padding-bottom: 10px;
+        }
+        
+        .cake-category img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .price-tag {
+            font-size: 24px;
+            color: #2E8B57;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .price-tag span {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        
+        th {
+            background-color: #8B4513;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #CD5C5C;
+        }
+        
+        .btn-wa {
+            background-color: #25D366;
+        }
+        
+        .btn-wa:hover {
+            background-color: #128C7E;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background-color: #f0e6e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #8B4513;
+        }
+        
+        /* Flavor Grid */
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .flavor-item {
+            background: #f0e6e0;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        footer a {
+            color: #CD5C5C;
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .cake-category h2 {
+                font-size: 28px;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            td, th {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION - Copy from index.html -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="catering.html">Catering</a>
+        <a href="Bead.html">Beads</a>
+        <a href="Cakes.html">Cakes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="order.html">Order Now</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- HEADER SECTION -->
+        <div class="page-header">
+            <h1>🎂 Toyin's Cakes & Cupcakes</h1>
+            <p>Delicious cakes for every celebration in Lagos</p>
+        </div>
+
+        <!-- SECTION 1: BIRTHDAY CAKES -->
+        <div class="cake-category">
+            <h2>🎉 Birthday Cakes</h2>
+            <img src="images/birthday-cake.jpg" alt="Toyin's birthday cake designs - Available in Lagos" onerror="this.src='https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=600'">
+            
+            <div class="price-tag">Starting from ₦5,000 <span>(feeds 6-8 people)</span></div>
+            
+            <h3>Sizes Available:</h3>
+            <ul>
+                <li><strong>6 inches</strong> - Serves 6-8 people - ₦5,000</li>
+                <li><strong>8 inches</strong> - Serves 10-12 people - ₦8,000</li>
+                <li><strong>10 inches</strong> - Serves 15-20 people - ₦12,000</li>
+                <li><strong>12 inches</strong> - Serves 25-30 people - ₦18,000</li>
+                <li><strong>2-tier (6+8 inches)</strong> - Serves 15-20 people - ₦15,000</li>
+                <li><strong>3-tier (6+8+10 inches)</strong> - Serves 30-40 people - ₦25,000</li>
+            </ul>
+            
+            <h3>Popular Birthday Designs:</h3>
+            <ul>
+                <li>Number cakes (18th, 21st, 30th, 40th, 50th, 60th)</li>
+                <li>Photo cakes (with edible image)</li>
+                <li>Theme cakes (Barbie, Spiderman, Football, etc.)</li>
+                <li>Drip cakes with chocolate ganache</li>
+                <li>Floral buttercream cakes</li>
+            </ul>
+            
+            <a href="order.html" class="btn">Order Birthday Cake →</a>
+            <a href="https://wa.me/2348123456789?text=Hello%20Toyin%2C%20I'm%20interested%20in%20a%20birthday%20cake" class="btn btn-wa">WhatsApp Now</a>
+        </div>
+
+        <!-- SECTION 2: WEDDING & ENGAGEMENT CAKES -->
+        <div class="cake-category">
+            <h2>💍 Wedding & Engagement Cakes</h2>
+            <img src="images/wedding-cake.jpg" alt="Toyin's wedding cake designs" onerror="this.src='https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=600'">
+            
+            <div class="price-tag">Starting from ₦15,000</div>
+            
+            <h3>Tier Options:</h3>
+            <ul>
+                <li><strong>2-tier</strong> - Serves 30-40 people - ₦25,000</li>
+                <li><strong>3-tier</strong> - Serves 50-70 people - ₦40,000</li>
+                <li><strong>4-tier</strong> - Serves 80-100 people - ₦60,000</li>
+                <li><strong>5-tier</strong> - Serves 120+ people - ₦85,000</li>
+            </ul>
+            
+            <h3>Wedding Cake Styles:</h3>
+            <ul>
+                <li>Classic white with fresh flowers</li>
+                <li>Gold leaf designs</li>
+                <li>Nude buttercream with fruits</li>
+                <li>Geometric patterns</li>
+                <li>Traditional Nigerian lace patterns</li>
+                <li>Modern minimalist</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Note for weddings:</strong> Book at least 2 weeks in advance. Free consultation and tasting available for wedding cakes.
+            </div>
+            
+            <a href="order.html" class="btn">Order Wedding Cake →</a>
+        </div>
+
+        <!-- SECTION 3: CUPCAKES -->
+        <div class="cake-category">
+            <h2>🧁 Cupcakes</h2>
+            <img src="images/cupcakes.jpg" alt="Toyin's cupcakes - assorted flavors" onerror="this.src='https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=600'">
+            
+            <div class="price-tag">From ₦500 each | ₦5,000 per dozen</div>
+            
+            <h3>Pricing:</h3>
+            <ul>
+                <li><strong>Single cupcake</strong> - ₦500</li>
+                <li><strong>Dozen (12 cupcakes)</strong> - ₦5,000 <span style="color:green">(Save ₦1,000)</span></li>
+                <li><strong>2 dozen (24 cupcakes)</strong> - ₦9,000 <span style="color:green">(Save ₦3,000)</span></li>
+                <li><strong>3 dozen (36 cupcakes)</strong> - ₦13,000 <span style="color:green">(Save ₦5,000)</span></li>
+                <li><strong>Custom decorated cupcakes</strong> - ₦700 each</li>
+            </ul>
+            
+            <h3>Cupcake Flavors:</h3>
+            <ul>
+                <li>Chocolate with chocolate frosting</li>
+                <li>Vanilla with buttercream</li>
+                <li>Red velvet with cream cheese</li>
+                <li>Lemon with lemon glaze</li>
+                <li>Carrot with walnuts</li>
+                <li>Coconut with coconut flakes</li>
+                <li>Marble (chocolate + vanilla)</li>
+            </ul>
+            
+            <a href="order.html" class="btn">Order Cupcakes →</a>
+        </div>
+
+        <!-- SECTION 4: CAKE SMALL CHOPS -->
+        <div class="cake-category">
+            <h2>🍰 Cake Small Chops (Party Pack)</h2>
+            <img src="images/cake-slice.jpg" alt="Toyin's cake slices and cake pops" onerror="this.src='https://images.pexels.com/photos/2144200/pexels-photo-2144200.jpeg?auto=compress&cs=tinysrgb&w=600'">
+            
+            <h3>Party Packages:</h3>
+            <ul>
+                <li><strong>Cake pops (10 pieces)</strong> - ₦2,500</li>
+                <li><strong>Cake pops (20 pieces)</strong> - ₦4,500</li>
+                <li><strong>Mini cupcakes (10 pieces)</strong> - ₦3,000</li>
+                <li><strong>Mini cupcakes (20 pieces)</strong> - ₦5,000</li>
+                <li><strong>Cake slices (10 slices)</strong> - ₦5,000</li>
+                <li><strong>Cake slices (20 slices)</strong> - ₦9,000</li>
+                <li><strong>Assorted box (mix of everything, 15 pieces)</strong> - ₦6,000</li>
+                <li><strong>Party platter (30 pieces)</strong> - ₦12,000</li>
+            </ul>
+            
+            <p>Perfect for: Birthday parties, weddings, bridal showers, baby showers, office parties, and events</p>
+            
+            <a href="order.html" class="btn">Order Small Chops →</a>
+        </div>
+
+        <!-- SECTION 5: CAKE FLAVORS -->
+        <div class="cake-category">
+            <h2>🍫 Cake Flavors</h2>
+            
+            <div class="flavor-grid">
+                <div class="flavor-item">Chocolate</div>
+                <div class="flavor-item">Vanilla</div>
+                <div class="flavor-item">Red Velvet</div>
+                <div class="flavor-item">Fruit Cake</div>
+                <div class="flavor-item">Carrot Cake</div>
+                <div class="flavor-item">Lemon</div>
+                <div class="flavor-item">Coconut</div>
+                <div class="flavor-item">Marble</div>
+                <div class="flavor-item">Banana</div>
+                <div class="flavor-item">Coffee</div>
+                <div class="flavor-item">Strawberry</div>
+                <div class="flavor-item">Black Forest</div>
+            </div>
+            
+            <h3>Fillings & Frosting:</h3>
+            <ul>
+                <li>Buttercream (vanilla, chocolate, strawberry)</li>
+                <li>Whipped cream</li>
+                <li>Chocolate ganache</li>
+                <li>Cream cheese frosting</li>
+                <li>Fondant (for decorated cakes)</li>
+                <li>Fruit preserves (strawberry, apricot)</li>
+                <li>Caramel</li>
+                <li>Nutella</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 6: SIZE GUIDE TABLE -->
+        <div class="cake-category">
+            <h2>📏 Cake Size Guide</h2>
+            
+            <table>
+                <tr>
+                    <th>Cake Size</th>
+                    <th>Serves</th>
+                    <th>Best For</th>
+                    <th>Price Range</th>
+                </tr>
+                <tr>
+                    <td>6 inches (round)</td>
+                    <td>6-8 people</td>
+                    <td>Small family, intimate celebration</td>
+                    <td>₦5,000 - ₦7,000</td>
+                </tr>
+                <tr>
+                    <td>8 inches (round)</td>
+                    <td>10-12 people</td>
+                    <td>Small party, birthday</td>
+                    <td>₦8,000 - ₦10,000</td>
+                </tr>
+                <tr>
+                    <td>10 inches (round)</td>
+                    <td>15-20 people</td>
+                    <td>Birthday party, office party</td>
+                    <td>₦12,000 - ₦15,000</td>
+                </tr>
+                <tr>
+                    <td>12 inches (round)</td>
+                    <td>25-30 people</td>
+                    <td>Large party, celebration</td>
+                    <td>₦18,000 - ₦22,000</td>
+                </tr>
+                <tr>
+                    <td>Sheet cake (9x13)</td>
+                    <td>20-25 people</td>
+                    <td>Office events, casual parties</td>
+                    <td>₦15,000 - ₦20,000</td>
+                </tr>
+                <tr>
+                    <td>2-tier (6+8)</td>
+                    <td>15-20 people</td>
+                    <td>Birthday, anniversary</td>
+                    <td>₦15,000 - ₦20,000</td>
+                </tr>
+                <tr>
+                    <td>3-tier (6+8+10)</td>
+                    <td>30-40 people</td>
+                    <td>Wedding, engagement</td>
+                    <td>₦25,000 - ₦35,000</td>
+                </tr>
+                <tr>
+                    <td>4-tier (8+10+12+14)</td>
+                    <td>80-100 people</td>
+                    <td>Wedding, big celebration</td>
+                    <td>₦60,000 - ₦80,000</td>
+                </tr>
+            </table>
+            
+            <p><em>Note: Prices vary based on design complexity and decorations</em></p>
+        </div>
+
+        <!-- SECTION 7: CUSTOM DESIGNS -->
+        <div class="cake-category">
+            <h2>✨ Custom Cake Designs</h2>
+            
+            <p>Can't find what you're looking for? Toyin creates custom cakes for any occasion:</p>
+            
+            <ul>
+                <li><strong>Birthday cakes</strong> with your photos, names, and special messages</li>
+                <li><strong>Baby shower cakes</strong> - boy/girl themes, diaper cakes available</li>
+                <li><strong>Graduation cakes</strong> - with cap and diploma designs</li>
+                <li><strong>Anniversary cakes</strong> - romantic designs for couples</li>
+                <li><strong>Corporate cakes</strong> - with company logos for events</li>
+                <li><strong>Theme cakes</strong> - any theme you want (movies, sports, hobbies)</li>
+                <li><strong>Religious cakes</strong> - church dedications, naming ceremonies</li>
+                <li><strong>Holiday cakes</strong> - Christmas, Easter, Sallah specials</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>How custom orders work:</strong>
+                <ol>
+                    <li>Tell us your idea or send a photo of what you want</li>
+                    <li>We'll advise on feasibility and price</li>
+                    <li>50% deposit to secure your date</li>
+                    <li>We'll send you design sketches for approval</li>
+                    <li>We bake and deliver your dream cake!</li>
+                </ol>
+            </div>
+            
+            <p><strong>Custom cake prices:</strong> Starting from ₦8,000 (depends on size and complexity)</p>
+            
+            <a href="order.html" class="btn">Request Custom Cake →</a>
+        </div>
+
+        <!-- SECTION 8: HOW TO ORDER -->
+        <div class="cake-category">
+            <h2>📝 How to Order Your Cake</h2>
+            
+            <ol>
+                <li><strong>Choose your cake:</strong> Decide on type (birthday, wedding, cupcakes, etc.)</li>
+                <li><strong>Select size:</strong> Use the size guide above to know how many people you need to feed</li>
+                <li><strong>Pick flavor:</strong> Choose cake flavor and filling from our list</li>
+                <li><strong>Share your design:</strong> Tell us what you want it to look like, or send a photo</li>
+                <li><strong>Provide event details:</strong> Date, time, and location for pickup/delivery</li>
+                <li><strong>Pay deposit:</strong> 50% to confirm your order (remaining 50% on delivery)</li>
+                <li><strong>Enjoy your cake:</strong> We deliver fresh on your event day!</li>
+            </ol>
+            
+            <div class="info-box">
+                <strong>⏰ Important:</strong> Order at least:
+                <ul>
+                    <li>3 days in advance for standard cakes</li>
+                    <li>1 week in advance for custom designed cakes</li>
+                    <li>2 weeks in advance for wedding cakes</li>
+                </ul>
+                <p>Rush orders possible (extra fee may apply) - just ask!</p>
+            </div>
+        </div>
+
+        <!-- SECTION 9: DELIVERY & PICKUP -->
+        <div class="cake-category">
+            <h2>🚚 Delivery & Pickup Information</h2>
+            
+            <h3>Delivery Areas & Prices:</h3>
+            <ul>
+                <li><strong>Surulere</strong> - Free pickup (or ₦1,000 delivery)</li>
+                <li><strong>Lekki, VI, Ikoyi</strong> - ₦2,000 delivery</li>
+                <li><strong>Mainland (Yaba, Ikeja, Gbagada)</strong> - ₦2,500 delivery</li>
+                <li><strong>Other mainland (Agege, Ogba, Maryland)</strong> - ₦3,000 delivery</li>
+                <li><strong>Outside Lagos</strong> - Contact for price (transport arranged)</li>
+            </ul>
+            
+            <h3>Pickup Location:</h3>
+            <p><strong>Address:</strong> 123 Example Street, Surulere, Lagos (opposite Shoprite)</p>
+            <p><strong>Pickup hours:</strong> Mon-Sat, 9am - 6pm</p>
+            
+            <h3>Delivery Tips:</h3>
+            <ul>
+                <li>We deliver on your specified date and time</li>
+                <li>Driver will call before arrival</li>
+                <li>Cakes are securely packaged for transport</li>
+                <li>Refrigeration not needed for same-day consumption</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 10: PAYMENT METHODS -->
+        <div class="cake-category">
+            <h2>💰 Payment Methods</h2>
+            
+            <ul>
+                <li><strong>Bank Transfer</strong> (50% deposit to confirm order)</li>
+                <li><strong>Cash</strong> on pickup/delivery (for balance)</li>
+                <li><strong>POS</strong> available at pickup location</li>
+                <li><strong>USSD</strong> - Bank transfers accepted</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Bank Details (for deposits):</strong><br>
+                Bank: GTBank<br>
+                Account Name: Toyin's Taste<br>
+                Account Number: 0123456789
+            </div>
+        </div>
+
+        <!-- SECTION 11: FAQ - CAKE SPECIFIC -->
+        <div class="cake-category">
+            <h2>❓ Frequently Asked Questions (Cakes)</h2>
+            
+            <h3>How far in advance should I order?</h3>
+            <p>For standard cakes, 3 days is enough. For custom designs, order 1 week ahead. Wedding cakes need 2 weeks minimum.</p>
+            
+            <h3>Do you do cake tastings?</h3>
+            <p>Yes! For wedding cakes and large orders, we offer free tastings. Book an appointment.</p>
+            
+            <h3>Can you match a specific color?</h3>
+            <p>Absolutely! Send us a color code or photo and we'll match it perfectly.</p>
+            
+            <h3>Do you deliver outside Lagos?</h3>
+            <p>Yes, we can arrange transport to other states. Contact us for a quote.</p>
+            
+            <h3>How should I store the cake?</h3>
+            <p>Keep in a cool place away from sunlight. If not eating same day, refrigerate and bring to room temperature before serving.</p>
+            
+            <h3>Can you make eggless cakes?</h3>
+            <p>Yes! We have eggless options available. Just let us know when ordering.</p>
+            
+            <h3>Do you have sugar-free options?</h3>
+            <p>Yes, we offer diabetic-friendly cakes with alternative sweeteners.</p>
+            
+            <h3>What if I need to cancel my order?</h3>
+            <p>Cancellations made 48 hours before pickup get full refund. Less than 48 hours, deposit is non-refundable.</p>
+        </div>
+
+        <!-- SECTION 12: CALL TO ACTION -->
+        <div class="cake-category" style="text-align: center; background-color: #8B4513; color: white;">
+            <h2 style="color: white;">🎂 Ready to Order Your Cake?</h2>
+            <p style="font-size: 20px;">Contact Toyin today for your celebration!</p>
+            
+            <a href="order.html" class="btn" style="background-color: white; color: #8B4513; margin: 10px;">Place Order Now</a>
+            <a href="https://wa.me/2348123456789?text=Hello%20Toyin%2C%20I'm%20interested%20in%20ordering%20a%20cake" class="btn btn-wa" style="margin: 10px;">Chat on WhatsApp</a>
+            
+            <p style="margin-top: 20px;">📞 Call: 08123456789 | 📧 Email: toyin@toyinstaste.com</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Toyin's Taste. All rights reserved.</p>
+        <p>Follow us on Instagram: <a href="#">@toyinstaste</a></p>
+        <p><a href="index.html">Home</a> | <a href="catering.html">Catering</a> | <a href="beads.html">Beads</a> | <a href="cakes.html">Cakes</a> | <a href="order.html">Order</a></p>
+    </footer>
+
+</body>
+</html>
