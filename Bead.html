@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyin's Beads - Handmade Nigerian Jewelry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff9f5;
+            color: #2d1b0e;
+        }
+        
+        /* Navigation - Same as catering */
+        nav {
+            background-color: #d44e2e;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: #333 !important;
+            padding: 12px 16px;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #d44e2e;
+            color: white !important;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: #d44e2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Day 9 Badge */
+        .day-badge {
+            background: linear-gradient(135deg, #d44e2e, #b33e23);
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Hero Section */
+        .beads-hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1611085583191-55e6a12c7e08?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .beads-hero h2 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .beads-hero p {
+            font-size: 1.3rem;
+            margin-top: 1rem;
+        }
+        
+        /* Categories */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: 0.8rem 2rem;
+            border: 2px solid #d44e2e;
+            border-radius: 50px;
+            background: transparent;
+            color: #d44e2e;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .category-tab.active,
+        .category-tab:hover {
+            background: #d44e2e;
+            color: white;
+        }
+        
+        /* Beads Grid */
+        .beads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .bead-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .bead-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .bead-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .bead-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #d44e2e;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .bead-content {
+            padding: 1.5rem;
+        }
+        
+        .bead-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bead-header h3 {
+            font-size: 1.3rem;
+            color: #2d1b0e;
+        }
+        
+        .bead-price {
+            color: #d44e2e;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .bead-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .bead-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        .bead-material {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .inquiry-btn {
+            background: #ffd166;
+            color: #2d1b0e;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .inquiry-btn:hover {
+            background: #f7b731;
+        }
+        
+        /* Collections Section */
+        .collections {
+            margin: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #2d1b0e;
+        }
+        
+        .section-title p {
+            color: #666;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .collection-card {
+            position: relative;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .collection-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .collection-overlay h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Custom Order Section */
+        .custom-order {
+            background: linear-gradient(135deg, #fae4d7 0%, #ffd9c9 100%);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .custom-content {
+            flex: 1;
+        }
+        
+        .custom-content h2 {
+            font-size: 2rem;
+            color: #2d1b0e;
+            margin-bottom: 1rem;
+        }
+        
+        .custom-content p {
+            color: #5a3f2e;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .custom-features {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature span {
+            font-size: 1.5rem;
+        }
+        
+        .custom-btn {
+            background: #d44e2e;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        
+        .custom-btn:hover {
+            background: #b33e23;
+            transform: translateY(-2px);
+        }
+        
+        .custom-image {
+            flex: 1;
+            height: 300px;
+            background: url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            margin: 4rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffd166;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2d1b0e;
+        }
+        
+        .author-info h4 {
+            color: #2d1b0e;
+        }
+        
+        .author-info p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2d1b0e;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ffd166;
+        }
+        
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .custom-order {
+                flex-direction: column;
+                padding: 2rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .custom-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Opzzy's Kitchen & Crafts</a>
+            <div class="nav-links">
+                <a href="index.htm">Home</a>
+                <a href="index.htm">About</a>
+                
+                <div class="dropdown">
+                    <a href="#">Services ▼</a>
+                    <div class="dropdown-content">
+                        <a href="catering.html">Catering</a>
+                        <a href="Bead.html">Beads</a>
+                        <a href="cakes.html">Cakes</a>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <a href="index.htm">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Day 9 Badge -->
+        <div style="text-align: center;">
+            <div class="day-badge">✨ Handmade Beads Collection ✨</div>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Toyin's Beads & Jewelry</h1>
+            <p>Handcrafted Nigerian beadwork - traditional elegance for every occasion</p>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="beads-hero">
+            <div>
+                <h2>Wear Your Heritage</h2>
+                <p>Authentic African beads • Custom designs • Wedding collections</p>
+            </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="filterBeads('all')">All</button>
+            <button class="category-tab" onclick="filterBeads('necklaces')">Necklaces</button>
+            <button class="category-tab" onclick="filterBeads('bracelets')">Bracelets</button>
+            <button class="category-tab" onclick="filterBeads('earrings')">Earrings</button>
+            <button class="category-tab" onclick="filterBeads('waist')">Waist Beads</button>
+        </div>
+
+        <!-- Beads Grid -->
+        <div class="beads-grid" id="beadsGrid">
+            <!-- Wedding Necklace -->
+            <div class="bead-item" data-category="necklaces">
+                <div class="bead-image" style="background-image: url('https://images.unsplash.com/photo-1611652084197-022c8e6a8c2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <div class="bead-tag">✨ Bridal</div>
+                </div>
+                <div class="bead-content">
+                    <div class="bead-header">
+                        <h3>Coral Majesty Set</h3>
+                        <span class="bead-price">₦25,000</span>
+                    </div>
+                    <p class="bead-description">Traditional coral beads with gold accents - perfect for weddings</p>
+                    <div class="bead-footer">
+                        <span class="bead-material">Coral • Gold</span>
+                        <button class="inquiry-btn" onclick="inquireNow('Coral Majesty Set')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Waist Beads -->
+            <div class="bead-item" data-category="waist">
+                <div class="bead-image" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <div class="bead-tag">⭐ Bestseller</div>
+                </div>
+                <div class="bead-content">
+                    <div class="bead-header">
+                        <h3>Sacred Waist Beads</h3>
+                        <span class="bead-price">₦8,500</span>
+                    </div>
+                    <p class="bead-description">Adjustable waist beads - traditional colors with healing crystals</p>
+                    <div class="bead-footer">
+                        <span class="bead-material">Glass • Crystal</span>
+                        <button class="inquiry-btn" onclick="inquireNow('Sacred Waist Beads')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statement Earrings -->
+            <div class="bead-item" data-category="earrings">
+                <div class="bead-image" style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                </div>
+                <div class="bead-content">
+                    <div class="bead-header">
+                        <h3>Diva Drop Earrings</h3>
+                        <span class="bead-price">₦12,000</span>
+                    </div>
+                    <p class="bead-description">Long statement earrings with recycled glass beads</p>
+                    <div class="bead-footer">
+                        <span class="bead-material">Glass • Brass</span>
+                        <button class="inquiry-btn" onclick="inquireNow('Diva Drop Earrings')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bracelet Stack -->
+            <div class="bead-item" data-category="bracelets">
+                <div class="bead-image" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <div class="bead-tag">New</div>
+                </div>
+                <div class="bead-content">
+                    <div class="bead-header">
+                        <h3>Lagos Bangle Set</h3>
+                        <span class="bead-price">₦15,000</span>
+                    </div>
+                    <p class="bead-description">Set of 5 mixed bead bracelets - stackable design</p>
+                    <div class="bead-footer">
+                        <span class="bead-material">Mixed beads</span>
+                        <button class="inquiry-btn" onclick="inquireNow('Lagos Bangle Set')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Choker -->
+            <div class="bead-item" data-category="necklaces">
+                <div class="bead-image" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                </div>
+                <div class="bead-content">
+                    <div class="bead-header">
+                        <h3>Modern Choker</h3>
+                        <span class="bead-price">₦9,500</span>
+                    </div>
+                    <p class="bead-description">Contemporary take on traditional bead choker</p>
+                    <div class="bead-footer">
+                        <span class="bead-material">Seed beads • Leather</span>
+                        <button class="inquiry-btn" onclick="inquireNow('Modern Choker')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anklet -->
+            <div class="bead-item" data-category="bracelets">
+                <div class="bead-image" style="background-image: url('https://images.unsplash.com/photo-1611652084197-022c8e6a8c2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                </div>
+                <div class="bead-content">
+                    <div class="bead-header">
+                        <h3>Beaded Anklet</h3>
+                        <span class="bead-price">₦6,500</span>
+                    </div>
+                    <p class="bead-description">Delicate anklet with traditional African beads</p>
+                    <div class="bead-footer">
+                        <span class="bead-material">Glass • Cotton</span>
+                        <button class="inquiry-btn" onclick="inquireNow('Beaded Anklet')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collections -->
+        <div class="collections">
+            <div class="section-title">
+                <h2>Curated Collections</h2>
+                <p>Specially designed sets for every occasion</p>
+            </div>
+            
+            <div class="collection-grid">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1611085583191-55e6a12c7e08?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wedding Collection">
+                    <div class="collection-overlay">
+                        <h3>Bridal Collection</h3>
+                        <p>Traditional & modern wedding sets</p>
+                    </div>
+                </div>
+                
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Everyday Collection">
+                    <div class="collection-overlay">
+                        <h3>Everyday Elegance</h3>
+                        <p>Minimalist designs for daily wear</p>
+                    </div>
+                </div>
+                
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Festival Collection">
+                    <div class="collection-overlay">
+                        <h3>Festival Glow</h3>
+                        <p>Bold colors for celebrations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Order Section -->
+        <div class="custom-order">
+            <div class="custom-content">
+                <h2>Design Your Own</h2>
+                <p>Can't find exactly what you're looking for? Let's create something unique together!</p>
+                
+                <div class="custom-features">
+                    <div class="feature">
+                        <span>🎨</span>
+                        <div>
+                            <strong>Choose colors</strong>
+                            <p>Any color combination</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span>📏</span>
+                        <div>
+                            <strong>Custom sizing</strong>
+                            <p>Perfect fit guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="custom-btn" onclick="openCustomOrder()">Start Your Design</a>
+            </div>
+            <div class="custom-image"></div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <div class="section-title">
+                <h2>Happy Customers</h2>
+                <p>Loved by brides, fashionistas, and bead lovers</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The wedding beads were absolutely stunning! Received so many compliments. Thank you Opzzy!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Amara O.</h4>
+                            <p>Bride • December 2024</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"I ordered custom waist beads and they fit perfectly. Beautiful craftsmanship!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">F</div>
+                        <div class="author-info">
+                            <h4>Funke A.</h4>
+                            <p>Lagos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Toyin's Taste Kitchen & Crafts</h3>
+                <p>📍 Lagos, Nigeria</p>
+                <p>📞 0801 234 5678</p>
+                <p>✉️ hello Toyin's Taste.com</p>
+                <div class="social-links">
+                    <a href="#">📷</a>
+                    <a href="#">📘</a>
+                    <a href="#">🐦</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="catering.html" style="color: #ddd; text-decoration: none;">Catering</a></p>
+                <p><a href="beads.html" style="color: #ddd; text-decoration: none;">Beads</a></p>
+                <p><a href="cakes.html" style="color: #ddd; text-decoration: none;">Cakes</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Toyin's Taste. Kitchen & Crafts | Bead collection</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterBeads(category) {
+            const items = document.querySelectorAll('.bead-item');
+            const tabs = document.querySelectorAll('.category-tab');
+            
+            tabs.forEach(tab => {
+                if (tab.textContent.toLowerCase().includes(category) || 
+                    (category === 'all' && tab.textContent === 'All')) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        function inquireNow(item) {
+            window.location.href = `contact.html?inquiry=${encodeURIComponent(item)}`;
+        }
+        
+        function openCustomOrder() {
+            window.open('https://wa.me/2348012345678?text=Hello%20Opzzy%2C%20I%27d%20like%20to%20design%20custom%20beads%21', '_blank');
+        }
+    </script>
+</body>
+</html>
